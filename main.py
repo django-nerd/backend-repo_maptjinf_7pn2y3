@@ -20,6 +20,40 @@ def read_root():
 def hello():
     return {"message": "Hello from the backend API!"}
 
+@app.get("/api/showcase/projects")
+def get_showcase_projects():
+    """Return a curated list of showcase projects and demos."""
+    projects = [
+        {
+            "id": "ai-todo",
+            "title": "AI-Powered Todo",
+            "subtitle": "Natural language to tasks",
+            "description": "Turn plain English into structured tasks, prioritize automatically, and track progress with a clean UI.",
+            "tags": ["AI", "Tasks", "NLP"],
+            "status": "featured",
+            "metrics": {"stars": 4.9, "users": 1200},
+        },
+        {
+            "id": "chat-realtime",
+            "title": "Realtime Chat",
+            "subtitle": "Typing indicators, presence, reactions",
+            "description": "A delightful chat experience with message threading, reactions, and presence — optimized for low latency.",
+            "tags": ["WebSockets", "UX", "Messaging"],
+            "status": "production",
+            "metrics": {"stars": 4.8, "users": 980},
+        },
+        {
+            "id": "ecommerce-api",
+            "title": "E‑commerce API",
+            "subtitle": "Catalog, carts, checkout",
+            "description": "Well-structured endpoints with validation and analytics hooks. Ready for storefronts and marketplaces.",
+            "tags": ["API", "FastAPI", "Payments"],
+            "status": "stable",
+            "metrics": {"stars": 4.7, "users": 1520},
+        },
+    ]
+    return {"projects": projects}
+
 @app.get("/test")
 def test_database():
     """Test endpoint to check if database is available and accessible"""
